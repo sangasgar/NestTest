@@ -26,4 +26,10 @@ export class UserService {
     });
     return dto;
   }
+  async piblicUser(email: string) {
+    return this.userRepository.findOne({
+      where: { email },
+      attributes: { exclude: ['password'] },
+    });
+  }
 }
